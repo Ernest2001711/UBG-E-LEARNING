@@ -1,0 +1,301 @@
+/* --- UNIVERSAL RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- SPLIT CANVAS WRAPPER --- */
+.auth-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 650px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    overflow: hidden;
+    margin: 20px;
+}
+
+/* --- LEFT DECORATIVE SIDE --- */
+.auth-brand-side {
+    flex: 1;
+    position: relative;
+    background-image: linear-gradient(135deg, rgba(15, 32, 67, 0.35) 0%, rgba(15, 23, 42, 0.55) 100%), url('ubg2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 48px;
+}
+
+/* Hidden dot grid overlay */
+.brand-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0; 
+    background-image: radial-gradient(#ffffff 2px, transparent 2px);
+    background-size: 24px 24px;
+}
+
+.brand-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-content h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    border-left: 5px solid #3b82f6;
+    padding-left: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.brand-content p {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- RIGHT UTILITY FORM SIDE --- */
+.auth-form-side {
+    flex: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    background-color: #ffffff;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* --- STRUCTURAL CSS TAB SWITCHING SYSTEM --- */
+.auth-tabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Hide Radio Indicators natively */
+.auth-tabs input[type="radio"] {
+    display: none;
+}
+
+.tab-label {
+    padding: 10px 0;
+    width: 50%;
+    text-align: center;
+    font-weight: 600;
+    color: #9ca3af;
+    cursor: pointer;
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+/* Tab Active Actions */
+#tab-login:checked ~ label[for="tab-login"],
+#tab-register:checked ~ label[for="tab-register"] {
+    color: #1e3a8a;
+    border-bottom: 2px solid #1e3a8a;
+}
+
+/* Display / Hiding Content Panels based on checked items */
+.form-panel {
+    display: none;
+    width: 100%;
+    padding-top: 32px;
+}
+
+#tab-login:checked ~ #login-panel,
+#tab-register:checked ~ #register-panel {
+    display: block;
+}
+
+/* --- INPUT & CONTENT ELEMENTS --- */
+.panel-intro {
+    margin-bottom: 24px;
+}
+
+.panel-intro h3 {
+    font-size: 1.5rem;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.panel-intro p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-row {
+    display: flex;
+    gap: 16px;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 11px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #1f2937;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.08);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+}
+
+/* FIXED: Repaired the broken syntax and layout containment here */
+.remember-me {
+    color: #4b5563;
+    text-transform: none;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.forgot-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 13px;
+    background-color: #1e3a8a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.auth-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* --- BRANDING LOGOS & BOTTOM FLAG MANAGEMENT --- */
+.auth-logos {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.uni-logo {
+    width: 55px !important;    
+    height: 55px !important;   
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.brand-footer {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.footer-text {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #e2e8f0;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* FIXED STYLE BACKUP: Ensures flag confinement even without inline styles */
+.flag-icon {
+    width: 70px !important;    
+    max-width: 70px !important;
+    height: auto !important;   
+    object-fit: contain !important;
+    border-radius: 4px;
+    display: block !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .auth-brand-side {
+        padding: 32px;
+    }
+    .brand-content h2 {
+        font-size: 1.75rem;
+    }
+    .brand-footer {
+        margin-top: 20px;
+    }
+    .auth-form-side {
+        padding: 32px 24px;
+    }
+}
